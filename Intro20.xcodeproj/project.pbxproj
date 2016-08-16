@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		20FE10341D62BC590024F59B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10331D62BC590024F59B /* AppDelegate.swift */; };
-		20FE10361D62BC590024F59B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10351D62BC590024F59B /* ViewController.swift */; };
 		20FE10391D62BC590024F59B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20FE10371D62BC590024F59B /* Main.storyboard */; };
 		20FE103B1D62BC590024F59B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20FE103A1D62BC590024F59B /* Assets.xcassets */; };
 		20FE103E1D62BC590024F59B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20FE103C1D62BC590024F59B /* LaunchScreen.storyboard */; };
 		20FE10491D62BC590024F59B /* Intro20Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10481D62BC590024F59B /* Intro20Tests.swift */; };
+		20FE10541D62BE0E0024F59B /* SalesRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10531D62BE0E0024F59B /* SalesRecordTableViewController.swift */; };
+		20FE10561D62BEFE0024F59B /* SalesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10551D62BEFE0024F59B /* SalesData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,6 @@
 /* Begin PBXFileReference section */
 		20FE10301D62BC590024F59B /* Intro20.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intro20.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FE10331D62BC590024F59B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		20FE10351D62BC590024F59B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		20FE10381D62BC590024F59B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20FE103A1D62BC590024F59B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20FE103D1D62BC590024F59B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +36,8 @@
 		20FE10441D62BC590024F59B /* Intro20Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Intro20Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FE10481D62BC590024F59B /* Intro20Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro20Tests.swift; sourceTree = "<group>"; };
 		20FE104A1D62BC590024F59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20FE10531D62BE0E0024F59B /* SalesRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRecordTableViewController.swift; sourceTree = "<group>"; };
+		20FE10551D62BEFE0024F59B /* SalesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				20FE10331D62BC590024F59B /* AppDelegate.swift */,
-				20FE10351D62BC590024F59B /* ViewController.swift */,
 				20FE10371D62BC590024F59B /* Main.storyboard */,
+				20FE10551D62BEFE0024F59B /* SalesData.swift */,
+				20FE10531D62BE0E0024F59B /* SalesRecordTableViewController.swift */,
 				20FE103A1D62BC590024F59B /* Assets.xcassets */,
 				20FE103C1D62BC590024F59B /* LaunchScreen.storyboard */,
 				20FE103F1D62BC590024F59B /* Info.plist */,
@@ -198,8 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20FE10361D62BC590024F59B /* ViewController.swift in Sources */,
 				20FE10341D62BC590024F59B /* AppDelegate.swift in Sources */,
+				20FE10561D62BEFE0024F59B /* SalesData.swift in Sources */,
+				20FE10541D62BE0E0024F59B /* SalesRecordTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
