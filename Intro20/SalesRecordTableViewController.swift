@@ -17,7 +17,7 @@ class SalesRecordTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         loadSampleSales()
     }
@@ -52,25 +52,26 @@ class SalesRecordTableViewController: UITableViewController {
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            teamSalesData.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -87,14 +88,51 @@ class SalesRecordTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "Edit" {
+            // Get the new view controller using segue.destinationViewController.
+            let editSalesDetailViewController = segue.destinationViewController as! EditSalesViewController
+            
+            // Pass the selected object to the new view controller.
+            if let selectedCell = sender as? UITableViewCell {
+                
+                let selectedIndexPath = tableView.indexPathForCell(selectedCell)!
+                let selectedSalesRecord = teamSalesData[selectedIndexPath.row]
+                editSalesDetailViewController.currentSalesToEdit = selectedSalesRecord
+                
+            }
+            
+        }
     }
-    */
+    
+    
+    @IBAction func editSalesViewControllerUnwindToSalesTable(segue: UIStoryboardSegue) {
+        
+        if let editSalesSourceViewController = segue.sourceViewController as? EditSalesViewController {
+            
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            teamSalesData[selectedIndexPath.row] = editSalesSourceViewController.currentSalesToEdit!
+            tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+        }
+        
+    }
+    
+    @IBAction func addSalesViewControllerUnwindToSalesTable(segue: UIStoryboardSegue) {
+        
+        if let addSalesSourceViewController = segue.sourceViewController as? AddSalesViewController {
+            
+            let newIndexPath = NSIndexPath(forRow: teamSalesData.count, inSection: 0)
+            teamSalesData.append(addSalesSourceViewController.currentAddSalesRecord!)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            
+        }
+        
+    }
+
 
 }

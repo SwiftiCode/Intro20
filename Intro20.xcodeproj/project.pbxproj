@@ -14,6 +14,8 @@
 		20FE10491D62BC590024F59B /* Intro20Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10481D62BC590024F59B /* Intro20Tests.swift */; };
 		20FE10541D62BE0E0024F59B /* SalesRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10531D62BE0E0024F59B /* SalesRecordTableViewController.swift */; };
 		20FE10561D62BEFE0024F59B /* SalesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10551D62BEFE0024F59B /* SalesData.swift */; };
+		20FE10581D62C3B80024F59B /* EditSalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10571D62C3B80024F59B /* EditSalesViewController.swift */; };
+		20FE105A1D62D5D10024F59B /* AddSalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FE10591D62D5D10024F59B /* AddSalesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		20FE104A1D62BC590024F59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20FE10531D62BE0E0024F59B /* SalesRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesRecordTableViewController.swift; sourceTree = "<group>"; };
 		20FE10551D62BEFE0024F59B /* SalesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesData.swift; sourceTree = "<group>"; };
+		20FE10571D62C3B80024F59B /* EditSalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSalesViewController.swift; sourceTree = "<group>"; };
+		20FE10591D62D5D10024F59B /* AddSalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSalesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			children = (
 				20FE10331D62BC590024F59B /* AppDelegate.swift */,
 				20FE10371D62BC590024F59B /* Main.storyboard */,
+				20FE10591D62D5D10024F59B /* AddSalesViewController.swift */,
+				20FE10571D62C3B80024F59B /* EditSalesViewController.swift */,
 				20FE10551D62BEFE0024F59B /* SalesData.swift */,
 				20FE10531D62BE0E0024F59B /* SalesRecordTableViewController.swift */,
 				20FE103A1D62BC590024F59B /* Assets.xcassets */,
@@ -202,7 +208,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				20FE10341D62BC590024F59B /* AppDelegate.swift in Sources */,
+				20FE10581D62C3B80024F59B /* EditSalesViewController.swift in Sources */,
 				20FE10561D62BEFE0024F59B /* SalesData.swift in Sources */,
+				20FE105A1D62D5D10024F59B /* AddSalesViewController.swift in Sources */,
 				20FE10541D62BE0E0024F59B /* SalesRecordTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
