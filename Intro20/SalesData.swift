@@ -15,7 +15,7 @@ struct SalesRecord {
     
     var name: String
     var sales: Int
-    
+     
 }
 
 // MARK: Data Collection
