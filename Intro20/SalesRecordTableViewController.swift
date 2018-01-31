@@ -17,7 +17,7 @@ class SalesRecordTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         loadSampleSales()
     }
@@ -29,19 +29,19 @@ class SalesRecordTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return teamSalesData.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SalesRecordCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SalesRecordCell", for: indexPath)
 
         // Configure the cell...
         let mySales = teamSalesData[indexPath.row]
@@ -54,7 +54,7 @@ class SalesRecordTableViewController: UITableViewController {
 
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -62,12 +62,12 @@ class SalesRecordTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            teamSalesData.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            teamSalesData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -92,16 +92,16 @@ class SalesRecordTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "Edit" {
             // Get the new view controller using segue.destinationViewController.
-            let editSalesDetailViewController = segue.destinationViewController as! EditSalesViewController
+            let editSalesDetailViewController = segue.destination as! EditSalesViewController
             
             // Pass the selected object to the new view controller.
             if let selectedCell = sender as? UITableViewCell {
                 
-                let selectedIndexPath = tableView.indexPathForCell(selectedCell)!
+                let selectedIndexPath = tableView.indexPath(for: selectedCell)!
                 let selectedSalesRecord = teamSalesData[selectedIndexPath.row]
                 editSalesDetailViewController.currentSalesToEdit = selectedSalesRecord
                 
@@ -111,24 +111,24 @@ class SalesRecordTableViewController: UITableViewController {
     }
     
     
-    @IBAction func editSalesViewControllerUnwindToSalesTable(segue: UIStoryboardSegue) {
+    @IBAction func editSalesViewControllerUnwindToSalesTable(_ segue: UIStoryboardSegue) {
         
-        if let editSalesSourceViewController = segue.sourceViewController as? EditSalesViewController {
+        if let editSalesSourceViewController = segue.source as? EditSalesViewController {
             
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             teamSalesData[selectedIndexPath.row] = editSalesSourceViewController.currentSalesToEdit!
-            tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
         }
         
     }
     
-    @IBAction func addSalesViewControllerUnwindToSalesTable(segue: UIStoryboardSegue) {
+    @IBAction func addSalesViewControllerUnwindToSalesTable(_ segue: UIStoryboardSegue) {
         
-        if let addSalesSourceViewController = segue.sourceViewController as? AddSalesViewController {
+        if let addSalesSourceViewController = segue.source as? AddSalesViewController {
             
-            let newIndexPath = NSIndexPath(forRow: teamSalesData.count, inSection: 0)
+            let newIndexPath = IndexPath(row: teamSalesData.count, section: 0)
             teamSalesData.append(addSalesSourceViewController.currentAddSalesRecord!)
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
             
         }
         

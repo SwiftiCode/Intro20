@@ -35,8 +35,8 @@ class AddSalesViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if sender === addSaveButton {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender as AnyObject? === addSaveButton {
             
             var mySalesman: String
             
@@ -64,9 +64,9 @@ class AddSalesViewController: UIViewController {
     }
     
     
-    @IBAction func cancelAddSales(sender: UIBarButtonItem) {
+    @IBAction func cancelAddSales(_ sender: UIBarButtonItem) {
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
